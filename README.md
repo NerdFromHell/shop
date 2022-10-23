@@ -6,4 +6,4 @@ made with Angular + nodejs in typescript
 
 here's an image to the overall site (works both on mobile and on desktop view)
 
-https://ibb.co/2kPtNnD
+![shopSite](https://user-images.githubusercontent.com/66864506/197392847-11fab3ed-c76d-4eb4-a9e3-7ee3ac7849a2.png)
