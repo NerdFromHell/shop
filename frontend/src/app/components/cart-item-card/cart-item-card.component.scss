@@ -1,0 +1,9 @@
+mat-divider{
+  padding-left: 16px;
+}
+
+::ng-deep .mat-card-header-text {
+  margin: 0px !important; //to remove the margin
+}
+
+

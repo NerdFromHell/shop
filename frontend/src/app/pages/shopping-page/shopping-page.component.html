@@ -1,0 +1,58 @@
+<div fxFlex="100" fxLayout="column">
+
+  <ng-progress #progressBar (started)="onStarted()" (completed)="onCompleted()"></ng-progress>
+
+  <div dir="rtl" fxFlex="100" fxLayout="row" style="padding: 5px; padding-right: 5%;">
+    <button class="category-button" [matMenuTriggerFor]="menu">
+      קטגוריה
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="ngOnInit()">בחר הכל</button>
+      <div *ngFor="let category of categories">
+        <button mat-menu-item (click)="filterByCategory(category, 1)">
+          <div *ngIf="this.currentCategory === category">
+            {{category}}<mat-icon>check</mat-icon>
+          </div>
+          {{category}}
+        </button>
+      </div>
+    </mat-menu>
+  </div>
+
+  <div dir="rtl" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="center center">
+    <div *ngFor="let item of Products" style="padding: 1%;">
+      <app-item-card [item]="item"></app-item-card>
+    </div>
+  </div>
+
+  <div class="pages" fxFlex="100" fxLayput="row" fxLayoutAlign="center center" >
+    <div *ngIf="this.currentPage > 3">
+      <button mat-button (click)="this.typeSelection(this.startingPage)">
+        {{this.startingPage}}
+      </button>
+      ...
+    </div>
+
+    <div *ngFor="let page of pageSelection()" style="padding: 5px;" fxLayoutAlign="center center" >
+      <div *ngIf="page === this.currentPage else regularPage"  >
+        <button mat-button style="color: white; background-color: grey;">
+          {{page}}
+        </button>
+
+      </div>
+      <ng-template #regularPage>
+        <button mat-button (click)="this.typeSelection(page)">
+          {{page}}
+        </button>
+      </ng-template>
+
+    </div>
+    <div *ngIf="this.uptoPage !== this.maxPageNumber">
+      ...
+      <button mat-button (click)="this.typeSelection(this.maxPageNumber)">
+        {{this.maxPageNumber}}
+      </button>
+    </div>
+  </div>
+</div>

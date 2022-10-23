@@ -1,0 +1,115 @@
+<div dir="rtl" fxFlex="100">
+  <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center">
+    <div>
+      <span>אתר</span>
+      <a (click)="emptySearchText()" [routerLink] = "['/']"  fxShow fxHide.lt-md fxFlex style="margin-right: 5px;">
+        <button mat-button>
+          מוצרים לרכישה
+        </button>
+      </a>
+    </div>
+
+    <div class="searchbar-body" fxFlex style="margin-left: 16px; margin-right: 16px;">
+      <button class="search-icon" matSuffix mat-button [disableRipple]="true" (click)="setSerchText()"><mat-icon style="color:#0d6efd !important;">search</mat-icon></button>
+      <input type="tel" matInput placeholder="חיפוש על פי שם מוצר" name= "search" [(ngModel)]= "search" (keyup.enter)="setSerchText()" fxFLex>
+    </div>
+
+    <div fxLayout="row" fxShow fxHide.lt-md style="align-items: center;">
+      <a [routerLink] = "['/cart']">
+        <button mat-button>
+          <mat-icon>shopping_cart</mat-icon> עגלה
+        </button>
+      </a>
+      <a
+        href="https://api.whatsapp.com/send?text={{url}}"
+        target="_blank"
+        data-action="share/whatsapp/share"
+        class="share-btn whatsapp"
+        fxShow
+      >
+        <button mat-icon-button>
+          <mat-icon>share</mat-icon>
+        </button>
+      </a>
+      <button mat-button (click)="logout()" fxLayoutAlign="center center">
+        <span class="material-icons-outlined" style="display: flex;">
+          <div *ngIf="!isLoggedIn" fxLayout="row" fxLayoutAlign="center center">
+            <mat-icon>login</mat-icon>
+            &nbsp;
+            <span>
+              התחבר
+            </span>
+          </div>
+          <div *ngIf="isLoggedIn" fxLayout="row" fxLayoutAlign="center center">
+            <mat-icon>logout</mat-icon>
+            &nbsp;
+            <span>
+              התנתק
+            </span>
+          </div>
+        </span>
+      </button>
+    </div>
+
+    <div class="animate-row-menu" fxShow fxHide.gt-sm >
+      <a
+        href="https://api.whatsapp.com/send?text={{url}}"
+        target="_blank"
+        data-action="share/whatsapp/share"
+        class="share-btn whatsapp"
+        fxShow
+      >
+        <button mat-icon-button>
+          <mat-icon>share</mat-icon>
+        </button>
+      </a>
+      <button mat-button (click)="isCollapsed = !isCollapsed" fxFlex="100" fxLayoutAlign="center center" style="display: flex; color: #0d6efd !important; ">
+        <div *ngIf="!isCollapsed">
+          <mat-icon fxLayout="center center">menu</mat-icon>
+        </div>
+        <div *ngIf="isCollapsed">
+          <mat-icon fxLayout="center center">close</mat-icon>
+        </div>
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <div *ngIf="isCollapsed" [@dropDownMenu] class="mobile-body" >
+    <mat-toolbar-row fxShow fxHide.gt-sm>
+      <a (click)="emptySearchText(); isCollapsed = false" [routerLink] = "['/']">
+        <button mat-button>
+          מוצרים לרכישה
+        </button>
+      </a>
+    </mat-toolbar-row>
+    <mat-toolbar-row fxShow fxHide.gt-sm>
+      <a (click)="isCollapsed = false" [routerLink] = "['/cart']">
+        <button mat-button>
+          <mat-icon>shopping_cart</mat-icon> עגלה
+        </button>
+      </a>
+    </mat-toolbar-row>
+    <mat-toolbar-row class="last" fxShow fxHide.gt-sm>
+      <button mat-button (click)="logout(); isCollapsed = false">
+        <span class="material-icons-outlined">
+          <div *ngIf="!isLoggedIn" fxLayout="row" fxLayoutAlign="center center">
+            <mat-icon>login</mat-icon>
+            &nbsp;
+            <span>
+              התחבר
+            </span>
+          </div>
+          <div *ngIf="isLoggedIn" fxLayout="row" fxLayoutAlign="center center">
+            <mat-icon>logout</mat-icon>
+            &nbsp;
+            <span>
+              התנתק
+            </span>
+          </div>
+        </span>
+      </button>
+    </mat-toolbar-row>
+  </div>
+</div>
+
+

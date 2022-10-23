@@ -1,0 +1,21 @@
+
+<div class="cart__list" dir="rtl" fxLayout="column" fxLayoutAlign="start center">
+  <div class="card__item" *ngFor="let productProperties of productsList">
+    <div  fxFlex="100">
+      <app-cart-item-card
+        [quantity]="productProperties.amount"
+        [product]="productProperties"
+        (removeProduct) = "deleteItemFromCart($event)">
+      </app-cart-item-card>
+    </div>
+  </div>
+  <div class="cart__price">
+    סה"כ:
+    {{totalCost()}}
+    ש"ח
+  </div>
+  <button>
+    שלח בקשה לקנייה
+  </button>
+</div>
+

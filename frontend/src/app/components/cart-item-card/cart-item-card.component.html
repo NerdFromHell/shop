@@ -1,0 +1,27 @@
+<div dir="rtl" style="padding:16px">
+  <mat-card fxFlex="100" fxLayout="row">
+    <mat-card-header fxFlex="25" >
+      <div fxLayoutAlign="start center" >
+        <img [src]="this.product.image " width="100%" height="100%" alt="Image" />
+      </div>
+    </mat-card-header>
+    <mat-divider [vertical]="true"  ></mat-divider>
+    <div fxFlex="75">
+      <mat-card-content fxLayout="column" >
+        <mat-card-title>{{this.product.name}}</mat-card-title>
+        <p>כמות: {{this.amount}}</p>
+      </mat-card-content>
+      <mat-card-content>
+        <p>
+          מחיר: {{this.product.price}} ש"ח ליחידה
+        </p>
+      </mat-card-content>
+    </div>
+    <mat-card-actions>
+      <div>
+        <button mat-raised-button color="primary" (click)="getProductId($event)">מחק</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>
+

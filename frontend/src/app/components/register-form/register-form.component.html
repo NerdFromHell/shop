@@ -1,0 +1,48 @@
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" fxLayout="row wrap">
+
+  <mat-form-field hideRequiredMarker appearance="fill" fxFlex="100">
+    <mat-label>שם פרטי:</mat-label>
+    <input type="text" matInput formControlName="firstName"/>
+    <mat-error *ngIf="this.registerForm.controls['firstName'].status">
+      הזן שם םרטי
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field hideRequiredMarker appearance="fill" fxFlex="100">
+    <mat-label>שם משפחה:</mat-label>
+    <input type="text" matInput formControlName="lastName"/>
+    <mat-error *ngIf="this.registerForm.controls['lastName'].status">
+      הזן שם משפחה
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field hideRequiredMarker appearance="fill" fxFlex="100" >
+    <mat-label>אימייל:</mat-label>
+    <input  type="email" matInput formControlName="email" placeholder="Ex. name@mail.com">
+    <mat-error *ngIf="this.registerForm.controls['email'].status">
+      הזן כתובת אימייל תקינה
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field hideRequiredMarker appearance="fill" fxFlex="100">
+    <mat-label>סיסמה:</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    <mat-error *ngIf="this.registerForm.controls['password'].status">
+      הכנס סיסמה עם לפחות 6 תווים בעל מספרים אות גדולה ואות קטנה באנגלית
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field hideRequiredMarker appearance="fill" fxFlex="100" dir="ltr">
+    <mat-label>:מספר פלאפון</mat-label>
+    <input type="tel" matInput formControlName="phone" placeholder="052-555-5555">
+    <mat-error *ngIf="this.registerForm.controls['phone'].status">
+      הכנס מספר תקין
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" fxFlex="100" >
+    הרשם!
+  </button>
+</form>

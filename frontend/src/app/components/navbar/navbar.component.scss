@@ -1,0 +1,83 @@
+.mat-button{
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+}
+
+.spacer {
+  padding-top: 64px;
+}
+
+.searchbar-body{
+  display: flex;
+  font-size: 14px;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  padding: 0 0.25rem;
+  background-color: #FFFFFF;
+  color: rgba(0, 0, 0, 1);
+  min-width: 190px;
+  max-width: 500px;
+
+  line-height: 40px;
+  height: 40px;
+  border-radius: 25px;
+  &:disabled {
+      background-color: #eee;
+      color: #666;
+    &:focus {
+      border-radius: 25px 25px 0 0;
+    }
+  }
+  ::ng-deep .mat-button-focus-overlay, .mat-button{
+    background-color:transparent;
+  }
+  input{
+    width: inherit;
+    box-sizing: border-box;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    background-color: transparent;
+  }
+}
+
+.mobile-body{
+  background-color: rgb(190, 186, 186);
+}
+
+.mat-toolbar-row{
+  justify-content: center;
+  z-index: 999;
+  text-align: center;
+  padding: 15px;
+  border-bottom: 1px solid #dcdcdc;
+  max-width: 300px;
+  margin: auto;
+  width: 100%;
+  cursor: pointer;
+}
+
+.animate-row-menu {
+  display: flex;
+  place-content: center;
+  align-items: stretch;
+  flex-direction: row;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.mobile-body {
+  border-bottom: 1px solid #dcdcdc;
+  background: #39577d;
+}
+
+.last {
+  border-bottom: none;
+}
+.mat-toolbar-row:hover {
+  color: #c1c1c1 !important;
+}
